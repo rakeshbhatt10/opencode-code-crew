@@ -23,6 +23,8 @@ out/
 ./llm-txt/*
 ./lookout-projects/*
 
+lookout-projects/*
+
 llm-txt/*
 
 # Debug
