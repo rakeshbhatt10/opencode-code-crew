@@ -71,14 +71,15 @@ jobs:
       
       - name: Verify build output
         run: |
-          if [ ! -d "docs/.vitepress/dist" ]; then
+          cd docs
+          if [ ! -d ".vitepress/dist" ]; then
             echo "Error: Build output directory not found!"
-            echo "Contents of docs/.vitepress:"
-            ls -la docs/.vitepress/ || echo "Directory doesn't exist"
+            echo "Contents of .vitepress:"
+            ls -la .vitepress/ || echo "Directory doesn't exist"
             exit 1
           fi
           echo "Build successful! Contents:"
-          ls -la docs/.vitepress/dist/
+          ls -la .vitepress/dist/ | head -20
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
