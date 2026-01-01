@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Agent Coding System - Documentation</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  
+  <!-- Docsify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <style>
+    :root {
+      --theme-color: #42b983;
+      --sidebar-width: 280px;
+    }
+    
+    .sidebar {
+      background: #f8f9fa;
+      border-right: 1px solid #e1e4e8;
+    }
+    
+    .sidebar .app-name {
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #2c3e50;
+      padding: 1rem;
+      border-bottom: 2px solid var(--theme-color);
+    }
+    
+    .sidebar .app-name-link {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    .sidebar ul li a {
+      color: #606266;
+      font-size: 0.95em;
+      padding: 0.5rem 1rem;
+      transition: all 0.2s;
+    }
+    
+    .sidebar ul li a:hover {
+      color: var(--theme-color);
+      background: #f0f9ff;
+      padding-left: 1.5rem;
+    }
+    
+    .sidebar ul li.active > a {
+      color: var(--theme-color);
+      font-weight: 600;
+      border-left: 3px solid var(--theme-color);
+      background: #f0f9ff;
+    }
+    
+    .markdown-section {
+      max-width: 900px;
+      padding: 2rem;
+    }
+    
+    .markdown-section h1 {
+      border-bottom: 3px solid var(--theme-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .markdown-section h2 {
+      border-bottom: 2px solid #e1e4e8;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .markdown-section h3 {
+      color: #2c3e50;
+      margin-top: 1.5rem;
+    }
+    
+    .markdown-section code {
+      background: #f4f4f5;
+      color: #e83e8c;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    
+    .markdown-section pre {
+      background: #282c34;
+      border-radius: 6px;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+    
+    .markdown-section pre code {
+      background: transparent;
+      color: #abb2bf;
+      padding: 0;
+    }
+    
+    .markdown-section blockquote {
+      border-left: 4px solid var(--theme-color);
+      background: #f0f9ff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    
+    .markdown-section table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    
+    .markdown-section table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 2px solid #e1e4e8;
+    }
+    
+    .markdown-section table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #e1e4e8;
+    }
+    
+    .markdown-section table tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .markdown-section .badge {
+      display: inline-block;
+      padding: 0.25em 0.6em;
+      font-size: 0.85em;
+      font-weight: 600;
+      line-height: 1;
+      color: #fff;
+      background: var(--theme-color);
+      border-radius: 3px;
+      margin: 0 0.25em;
+    }
+    
+    .markdown-section .badge.success {
+      background: #52c41a;
+    }
+    
+    .markdown-section .badge.warning {
+      background: #faad14;
+    }
+    
+    .markdown-section .badge.error {
+      background: #f5222d;
+    }
+    
+    /* Print styles */
+    @media print {
+      .sidebar {
+        display: none;
+      }
+      .markdown-section {
+        max-width: 100%;
+      }
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .markdown-section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">Loading documentation...</div>
+  
+  <script>
+    window.$docsify = {
+      name: 'Multi-Agent Coding System',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      coverpage: false,
+      notFoundPage: true,
+      executeScript: true,
+      mergeNavbar: true,
+      formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'Search documentation...',
+        noData: 'No Results!',
+        depth: 6
+      },
+      pagination: {
+        previousText: '← Previous',
+        nextText: 'Next →',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            // Add badges for status indicators
+            html = html.replace(/\[x\]/g, '<span class="badge success">✓</span>');
+            html = html.replace(/\[ \]/g, '<span class="badge">○</span>');
+            return html;
+          });
+          
+          hook.afterEach(function(html) {
+            // Add "Last updated" timestamp
+            return html + '\n\n---\n\n*Last updated: ' + new Date().toLocaleDateString() + '*';
+          });
+        }
+      ]
+    };
+  </script>
+  
+  <!-- Docsify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  
+  <!-- Prism for syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+</body>
+</html>
+

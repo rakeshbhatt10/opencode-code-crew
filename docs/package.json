@@ -1,0 +1,25 @@
+{
+  "name": "multi-agent-system-docs",
+  "version": "1.0.0",
+  "description": "Documentation for Multi-Agent Coding System",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "serve": "vitepress dev --port 3000",
+    "start": "vitepress dev --port 3000"
+  },
+  "keywords": [
+    "documentation",
+    "vitepress",
+    "multi-agent",
+    "opencode",
+    "ai-agents"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}

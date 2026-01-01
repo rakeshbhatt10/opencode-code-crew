@@ -1,0 +1,269 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ */
+:root {
+  --vp-c-brand-1: #42b983;
+  --vp-c-brand-2: #35a372;
+  --vp-c-brand-3: #299764;
+  --vp-c-brand-soft: rgba(66, 185, 131, 0.14);
+  
+  --vp-c-tip-1: #42b983;
+  --vp-c-tip-2: #35a372;
+  --vp-c-tip-3: #299764;
+  --vp-c-tip-soft: rgba(66, 185, 131, 0.14);
+}
+
+.dark {
+  --vp-c-brand-1: #52c41a;
+  --vp-c-brand-2: #42b983;
+  --vp-c-brand-3: #35a372;
+  --vp-c-brand-soft: rgba(66, 185, 131, 0.16);
+}
+
+/**
+ * Component: Button
+ */
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #42b983 30%,
+    #35a372
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #42b983 50%,
+    #35a372 50%
+  );
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ */
+:root {
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ */
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+/**
+ * Custom Styles
+ */
+
+/* Better code blocks */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.vp-doc div[class*='language-'] code {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Better tables */
+.vp-doc table {
+  display: block;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+
+.vp-doc tr:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* Better blockquotes */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  padding-left: 16px;
+  margin: 20px 0;
+  background-color: var(--vp-c-bg-soft);
+  padding: 16px;
+  border-radius: 4px;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  background-color: var(--vp-c-brand-1);
+  border-radius: 12px;
+  margin: 0 4px;
+}
+
+.badge.success {
+  background-color: #52c41a;
+}
+
+.badge.warning {
+  background-color: #faad14;
+}
+
+.badge.error {
+  background-color: #f5222d;
+}
+
+.badge.info {
+  background-color: #1890ff;
+}
+
+/* Checkboxes in markdown */
+.vp-doc input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+/* Better spacing for lists */
+.vp-doc ul, .vp-doc ol {
+  padding-left: 1.5em;
+  margin: 16px 0;
+}
+
+.vp-doc li {
+  margin: 8px 0;
+}
+
+/* Highlight important notes */
+.vp-doc p:has(> strong:first-child) {
+  padding: 12px 16px;
+  background-color: var(--vp-c-bg-soft);
+  border-left: 4px solid var(--vp-c-brand-1);
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+/* Better code inline */
+.vp-doc :not(pre) > code {
+  padding: 3px 6px;
+  font-size: 0.9em;
+  background-color: var(--vp-c-bg-mute);
+  border-radius: 4px;
+}
+
+/* Improve readability */
+.vp-doc {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.vp-doc h1 {
+  font-size: 2.5em;
+  margin-top: 0;
+  border-bottom: 2px solid var(--vp-c-divider);
+  padding-bottom: 0.5em;
+}
+
+.vp-doc h2 {
+  font-size: 2em;
+  margin-top: 2em;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.3em;
+}
+
+.vp-doc h3 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+}
+
+/* Sidebar improvements */
+.VPSidebar {
+  padding: 32px 24px 96px;
+}
+
+.group + .group {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+/* Footer */
+.VPFooter {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 32px;
+  margin-top: 64px;
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+  .vp-doc {
+    font-size: 15px;
+  }
+  
+  .vp-doc h1 {
+    font-size: 2em;
+  }
+  
+  .vp-doc h2 {
+    font-size: 1.6em;
+  }
+  
+  .vp-doc h3 {
+    font-size: 1.3em;
+  }
+}
+
+/* Print styles */
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPFooter,
+  .prev-next {
+    display: none !important;
+  }
+  
+  .vp-doc {
+    max-width: 100% !important;
+  }
+}
+
