@@ -1,0 +1,51 @@
+{
+  "name": "@opencode-ai/code-crew",
+  "version": "1.0.0",
+  "description": "Multi-agent coding crew with context engineering for OpenCode",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "lint": "eslint src/",
+    "format": "prettier --write \"src/**/*.{ts,tsx,md,json}\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "docs:dev": "cd docs && npm run dev",
+    "docs:build": "cd docs && npm run build"
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "@opencode-ai/sdk": "^1.0.0",
+    "js-yaml": "^4.1.0",
+    "p-limit": "^5.0.0",
+    "p-retry": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "bun-types": "^1.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "plugin",
+    "multi-agent",
+    "code-crew",
+    "ai",
+    "coding",
+    "context-engineering"
+  ],
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
+
