@@ -21,7 +21,48 @@ npm install -g @opencode-ai/cli
 opencode --version
 ```
 
-### 3. Set Up API Keys
+### 3. Configure OpenCode Plugins
+
+Add the required authentication plugins to your OpenCode configuration:
+
+**Add plugins to `~/.config/opencode/opencode.json`:**
+
+```json
+{
+  "plugin": [
+    "opencode-antigravity-auth@1.1.2",
+    "opencode-openai-codex-auth@4.1.1"
+  ]
+}
+```
+
+**Add dependencies to your project's `package.json`:**
+
+```json
+{
+  "dependencies": {
+    "opencode-openai-codex-auth": "code-yeongyu/opencode-openai-codex-auth#fix/orphaned-function-call-output-with-tools"
+  }
+}
+```
+
+**Authenticate with OpenCode:**
+
+```bash
+# Login for both Codex and Antigravity using Chrome auth
+opencode auth login
+
+# Follow the prompts to authenticate via Chrome browser
+# You'll be asked to paste the authentication key
+```
+
+**To clear authentication (if needed):**
+
+```bash
+opencode auth clear
+```
+
+### 4. Set Up API Keys
 
 ```bash
 # Required: Google AI (for free-tier planning)
@@ -29,12 +70,11 @@ export GOOGLE_API_KEY="your-gemini-api-key"
 
 # Required: OpenAI (for implementation)
 export OPENAI_API_KEY="your-openai-api-key"
-
-# Login to OpenCode
-opencode login
 ```
 
-### 4. Build the Plugin
+> **Note:** You should have already authenticated with OpenCode in step 3. If you haven't, run `opencode auth login` before proceeding.
+
+### 5. Build the Plugin
 
 ```bash
 # Navigate to the project
@@ -47,7 +87,7 @@ pnpm install
 pnpm build
 ```
 
-### 5. Install as OpenCode Plugin
+### 6. Install as OpenCode Plugin
 
 ```bash
 # Link for development
@@ -326,8 +366,8 @@ maxContextSize: 4000,  // 4KB
 
 **Solution:**
 ```bash
-# Login to OpenCode
-opencode login
+# Authenticate with OpenCode
+opencode auth login
 
 # Or set API key
 export OPENCODE_API_KEY="your-key"
