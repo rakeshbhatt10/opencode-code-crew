@@ -3,6 +3,7 @@
 * [📋 Quick Start](#)
   * [🚀 OpenCode Usage Guide](OPENCODE_USAGE_GUIDE.md)
   * [Getting Started](GETTING_STARTED.md)
+  * [🔧 Local Plugin Setup](LOCAL_PLUGIN_SETUP.md)
   * [Quick Reference](QUICK_REFERENCE.md)
   * [📺 Docs Viewer Guide](DOCS_VIEWER.md)
   * [Summary](SUMMARY.md)

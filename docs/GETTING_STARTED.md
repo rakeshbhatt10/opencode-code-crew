@@ -89,17 +89,42 @@ pnpm build
 
 ### 6. Install as OpenCode Plugin
 
+**Option A: Install from npm (when published)**
+
 ```bash
-# Link for development
-opencode plugin link .
-
-# Verify installation
-opencode plugin list
+# Add to your OpenCode config
+# ~/.config/opencode/opencode.json or .opencode/opencode.json
+{
+  "plugin": ["@opencode-ai/code-crew"]
+}
 ```
 
-You should see:
+**Option B: Use as local plugin (recommended for development)**
+
+See the **[Local Plugin Setup Guide](LOCAL_PLUGIN_SETUP.md)** for detailed instructions on setting up Code Crew as a local plugin in your project.
+
+**Quick local setup:**
+
+```bash
+# Create plugin directory
+mkdir -p .opencode/plugin
+
+# Link the plugin
+ln -s /path/to/opencode-code-crew/src .opencode/plugin/code-crew
+
+# Create entry point
+echo 'import codeCrew from "./code-crew/src/index.js"; export default codeCrew;' > .opencode/plugin/code-crew.ts
 ```
-✓ code-crew v1.0.0 (installed)
+
+**Verify installation:**
+
+```bash
+# Start OpenCode
+opencode run
+
+# In OpenCode session, check available tools
+> help
+# Should show: plan, backlog, implement, rebase
 ```
 
 ---
@@ -512,6 +537,7 @@ Instead of patching messy implementations, detect "messy runs" and regenerate fr
 ## 📖 Documentation
 
 - **[OpenCode Usage Guide](OPENCODE_USAGE_GUIDE.md)** - Complete reference ⭐
+- **[Local Plugin Setup](LOCAL_PLUGIN_SETUP.md)** - Use Code Crew as a local plugin 🔧
 - [Quick Reference](QUICK_REFERENCE.md) - Command cheat sheet
 - [Workflow Guide](WORKFLOW_GUIDE.md) - Detailed workflows
 - [System Spec](SYSTEM_SPEC.md) - Architecture details
